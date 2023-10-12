@@ -1,15 +1,44 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="flex justify-center w-full items-centr">
+    <canvas id="canvas" style="border: 2px solid black"></canvas>
+    <button type="button" @click="addRect('green', { x: 60, y: 60 })">Add</button>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+  },
+  data() {
+    return {
+      canvasCtx: null,
+    }
+  },
+  methods: {
+    addRect(color = "darkorange", canvas = { x: 0, y: 0 }) {
+
+      this.canvasCtx.rect(canvas.x, canvas.y, 60, 60);
+      this.canvasCtx.fillStyle = color;
+      this.canvasCtx.fill();
+
+    }
+  },
+  mounted() {
+    const canvas = document.getElementById("canvas");
+    canvas.width = 1000;
+    canvas.height = 700;
+    console.log(canvas);
+    const ctx = canvas.getContext("2d");
+
+    this.canvasCtx = ctx
+
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, 1000, 700);
+
+    this.addRect()
+
   }
 }
 </script>
