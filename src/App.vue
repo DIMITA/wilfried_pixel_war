@@ -74,8 +74,8 @@ export default {
       canvasCtx: null,
       canvasId: 0,
       color: "black",
-      x: 0,
-      y: 0
+      x: null,
+      y: null
     }
   },
   methods: {
@@ -84,12 +84,12 @@ export default {
     },
 
     addPixel() {
-      if (this.x > 19 || this.x < 0) {
+      if (!this.x || this.x > 19 || this.x < 0) {
         alert("Désolé les cordonnées X doivent être compris entre 0 et 19 comme indiqué")
         return
       }
 
-      if (this.y > 13 || this.y < 0) {
+      if (!this.y || this.y > 13 || this.y < 0) {
         alert("Désolé les cordonnées Y doivent être compris entre 0 et 13 comme indiqué")
         return
       }
