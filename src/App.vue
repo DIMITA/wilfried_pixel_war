@@ -9,7 +9,7 @@
       Télécharger l'image
     </button>
 
-    <div class="flex flex-wrap -mx-3 w-1/3 my-6">
+    <div class="flex flex-wrap -mx-3 w-1/2 my-6">
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="block tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
           Coordonée X
