@@ -104,6 +104,19 @@ export default {
     },
 
     downloadImg() {
+
+      let imagesByTag = document.getElementsByTagName('img')
+      Array.prototype.forEach.call(imagesByTag, (element, key) => {
+        var link = document.createElement("a");
+        const src = element.src
+        if (!src.includes('data')) return;
+        link.href = src;
+        const exten = (src.match(/[^:]\w+\/[\w-+\d.]+(?=;|,)/)[0]).substring(6)
+        link.download = `images-ia-${key}.${exten}`
+        console.log(exten);
+        link.click();
+      });
+
       const canvas = document.getElementById("canvas");
       var link = document.createElement("a");
       link.download = "image.png";
